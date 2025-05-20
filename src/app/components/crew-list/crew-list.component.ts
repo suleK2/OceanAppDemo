@@ -41,6 +41,14 @@ export class CrewListComponent{
   }
   }
 
+  deleteMember(member: CrewMember): void {
+  const confirmed = confirm(`Are you sure you want to delete ${member.firstName} ${member.lastName}?`);
+  if (confirmed) {
+    this.crewService.deleteCrewMember(member.id);
+    this.getCrews();
+  }
+}
+
   getTitles():CrewTitle[]{
     return this.crewTitleService.getCrewTitles();
   }

@@ -15,7 +15,8 @@
     "actions": "Actions",
     "cancel":"Cancel",
     "save":"Save",
-    "editMember": "Edit Member"
+    "editMember": "Edit Member",
+    "delete": "Delete"
   },
   "titles": {
   "captain": "Captain",

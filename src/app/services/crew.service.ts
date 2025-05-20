@@ -15,6 +15,12 @@ export class CrewService{
     const index = Crews.findIndex(member => member.id === updatedMember.id);
      if (index !== -1) {
         Crews[index] = { ...updatedMember };
+        }
+    }
+    deleteCrewMember(id: number): void {
+    const index = Crews.findIndex(c => c.id === id);
+    if (index !== -1) {
+      Crews.splice(index, 1);
+    }
   }
-}
 }
