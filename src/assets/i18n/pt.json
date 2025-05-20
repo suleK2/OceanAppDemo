@@ -16,5 +16,11 @@
     "cancel": "Cancelar",
     "save": "Salvar",
     "editMember": "Editar membro"
+  },
+  "titles": {
+  "captain": "Capitão",
+  "engineer": "Engenheiro",
+  "cook": "Cozinheiro",
+  "mechanic": "Mecânico"
   }
 }

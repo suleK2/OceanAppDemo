@@ -4,7 +4,7 @@ export class CrewMember {
     public firstName: string,
     public lastName: string,
     public nationality: string,
-    public title: string,
+    public titleId: number,
     public daysOnBoard: number,
     public dailyRate: number,
     public currency: string
