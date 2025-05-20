@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { CrewMember } from '../../models/crew-member.model';
 import { CrewTitle } from '../../models/crew-title.model';
+import { Nationality } from '../../models/nationality.model';
+import { Currency } from '../../models/currency.model';
 
 @Component({
   selector: 'app-crew-edit',
@@ -14,6 +16,8 @@ import { CrewTitle } from '../../models/crew-title.model';
 export class CrewEditComponent {
   @Input() member: CrewMember | null = null;
   @Input() titles: CrewTitle[] = [];
+  @Input() nationalities: Nationality[] = [];
+  @Input() currencies: Currency[] = [];
   @Output() cancel = new EventEmitter<void>();
   @Output() save = new EventEmitter<CrewMember>();
 

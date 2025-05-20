@@ -1,9 +1,9 @@
 import { CrewMember } from "../models/crew-member.model";
 
 export const Crews: CrewMember[] = [
-  new CrewMember(1, 'John', 'Doe', 'USA', 1, 30, 500, 'USD'),
-  new CrewMember(2, 'Jane', 'Smith', 'UK', 2, 45, 400, 'USD'),
-  new CrewMember(3, 'Ali', 'Veli', 'Turkey', 3, 60, 200, 'EUR'),
-  new CrewMember(4, 'Pierre', 'Dubois', 'France', 4, 120, 180, 'EUR'),
-  new CrewMember(5, 'Carlos', 'Silva', 'Portugal', 2, 90, 350, 'USD')
+  new CrewMember(1, 'John', 'Doe', 1, 1, 30, 500, 1),
+  new CrewMember(2, 'Jane', 'Smith', 2, 2, 45, 400, 1),
+  new CrewMember(3, 'Ali', 'Veli', 3, 3, 60, 200, 2),
+  new CrewMember(4, 'Pierre', 'Dubois', 4, 4, 120, 180, 2),
+  new CrewMember(5, 'Carlos', 'Silva', 5, 2, 90, 350, 1)
 ];

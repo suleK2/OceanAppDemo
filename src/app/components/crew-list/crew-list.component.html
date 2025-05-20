@@ -21,11 +21,11 @@
         <td>{{ member.firstName }}</td>
         <td>{{ member.lastName }}</td>
         <td>{{ 'titles.' + getTitleNameById(member.titleId) | translate}}</td>
-        <td>{{ member.nationality }}</td>
-        <td>{{ member.currency }}</td>
+        <td>{{ getNameById(member.nationalityId) }}</td>
+        <td>{{ getCurrencyCodeById(member.currencyId) }}</td>
         <td>{{ member.daysOnBoard }}</td>
-        <td>{{ member.dailyRate | currency: member.currency}}</td>
-        <td>{{ member.daysOnBoard * member.dailyRate | currency: member.currency }}</td>
+        <td>{{ member.dailyRate | currency: getCurrencyCodeById(member.currencyId)}}</td>
+        <td>{{ member.daysOnBoard * member.dailyRate | currency: getCurrencyCodeById(member.currencyId) }}</td>
         <td (click)="openCertificateModal(member)">
   <i class="fas fa-certificate text-primary" style="cursor:pointer"></i>
 </td>
@@ -47,6 +47,8 @@
   *ngIf="showEditModal"
   [member]="selectedMember"
   [titles]="getTitles()"
+  [currencies]="getCurrencies()"
+  [nationalities]="getNationalities()"
   (cancel)="closeEditModal()"
   (save)="saveMember($event)">
 </app-crew-edit>

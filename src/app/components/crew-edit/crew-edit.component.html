@@ -33,16 +33,17 @@
         <div class="mb-3 row align-items-center">
           <label class="col-sm-3 col-form-label">{{ 'crew.nationality' | translate }}</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" [(ngModel)]="member.nationality" />
+             <select class="form-select" [(ngModel)]="member.nationalityId">
+               <option *ngFor="let nat of nationalities" [ngValue]="nat.id">{{ nat.name }}</option>
+            </select>
           </div>
         </div>
 
           <div class="mb-3 row align-items-center">
           <label class="col-sm-3 col-form-label">{{ 'crew.currency' | translate }}</label>
           <div class="col-sm-9">
-            <select class="form-select" [(ngModel)]="member.currency">
-              <option value="USD">USD</option>
-             <option value="EUR">EUR</option>
+            <select class="form-select" [(ngModel)]="member.currencyId">
+               <option *ngFor="let cur of currencies" [ngValue]="cur.id">{{ cur.code }}</option>
             </select>
           </div>
         </div>
