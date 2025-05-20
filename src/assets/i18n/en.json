@@ -8,7 +8,8 @@
     "daysOnBoard": "Days On Board",
     "dailyRate": "Daily Rate",
     "currency": "Currency",
-    "totalIncome": "Total Income"
+    "totalIncome": "Total Income",
+    "certificates": "Certificates"
   },
   "common": {
     "edit": "Edit",
@@ -16,12 +17,19 @@
     "cancel":"Cancel",
     "save":"Save",
     "editMember": "Edit Member",
-    "delete": "Delete"
+    "delete": "Delete",
+    "close":"Close"
   },
   "titles": {
   "captain": "Captain",
   "engineer": "Engineer",
   "cook": "Cook",
   "mechanic": "Mechanic"
-}
+  },
+  "certificate": {
+    "type": "Type",
+    "issueDate": "Issue Date",
+    "expiryDate": "Expiry Date",
+    "details": "Certificate Details"
+  }
 }

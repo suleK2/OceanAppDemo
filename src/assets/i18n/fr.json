@@ -8,7 +8,8 @@
     "daysOnBoard": "Jours à bord",
     "dailyRate": "Taux journalier",
     "currency": "Devise",
-    "totalIncome": "Revenu total"
+    "totalIncome": "Revenu total",
+    "certificates": "Certificats"
   },
   "common": {
     "edit": "Modifier",
@@ -16,12 +17,19 @@
     "cancel": "Annuler",
     "save": "Enregistrer",
     "editMember": "Modifier le membre",
-    "delete": "Supprimer"
+    "delete": "Supprimer",
+    "close": "Fermer"
   },
   "titles": {
   "captain": "Capitaine",
   "engineer": "Ingénieur",
   "cook": "Cuisinier",
   "mechanic": "Mécanicien"
-}
+  },
+  "certificate": {
+    "type": "Type",
+    "issueDate": "Date de Délivrance",
+    "expiryDate": "Date d'Expiration",
+    "details": "Détails du Certificat"
+  }
 }

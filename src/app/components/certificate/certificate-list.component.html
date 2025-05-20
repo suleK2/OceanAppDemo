@@ -1,0 +1,31 @@
+<div class="modal fade show d-block" tabindex="-1" *ngIf="certificates?.length" style="background-color: rgba(0,0,0,0.5);">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ 'crew.certificates' | translate }}</h5>
+        <button type="button" class="btn-close" (click)="close()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>{{ 'certificate.type' | translate }}</th>
+              <th>{{ 'certificate.issueDate' | translate }}</th>
+              <th>{{ 'certificate.expiryDate' | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cert of certificates">
+              <td>{{ getTypeName(cert.certificateTypeId) }}</td>
+              <td>{{ cert.issueDate }}</td>
+              <td>{{ cert.expiryDate }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="close()">{{ 'common.close' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>
