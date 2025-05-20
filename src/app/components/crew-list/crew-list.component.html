@@ -30,9 +30,9 @@
   <i class="fas fa-certificate text-primary" style="cursor:pointer"></i>
 </td>
         <td>
-  <button class="btn btn-sm btn-outline-primary" (click)="editMember(member)">
-    <i class="fas fa-edit"></i> {{ 'common.edit' | translate }}
-  </button>
+<button class="btn btn-sm btn-outline-primary" (click)="openEditModal(member)">
+  <i class="fas fa-edit"></i> {{ 'common.edit' | translate }}
+</button>
   <button class="btn btn-sm btn-outline-danger" (click)="deleteMember(member)">
     <i class="fas fa-trash"></i> {{ 'common.delete' | translate }}
   </button>
@@ -42,79 +42,14 @@
   </table>
 </div>
 
-<div class="modal fade show d-block" tabindex="-1" *ngIf="selectedMember" style="background-color: rgba(0,0,0,0.5);">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">{{ 'common.editMember' | translate }}</h5>
-        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
-      </div>
-      <div class="modal-body">
-        
-        <div class="mb-3 row align-items-center">
-          <label class="col-sm-3 col-form-label">{{ 'crew.firstName' | translate }}</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control" [(ngModel)]="selectedMember.firstName" />
-          </div>
-        </div>
 
-        <div class="mb-3 row align-items-center">
-          <label class="col-sm-3 col-form-label">{{ 'crew.lastName' | translate }}</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control" [(ngModel)]="selectedMember.lastName" />
-          </div>
-        </div>
-
-        <div class="mb-3 row align-items-center">
-          <label class="col-sm-3 col-form-label">{{ 'crew.title' | translate }}</label>
-          <div class="col-sm-9">
-            <select class="form-select" [(ngModel)]="selectedMember.titleId">
-              <option *ngFor="let title of getTitles()" [ngValue]="title.id">{{ 'titles.' + title.name | translate}}</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="mb-3 row align-items-center">
-          <label class="col-sm-3 col-form-label">{{ 'crew.nationality' | translate }}</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control" [(ngModel)]="selectedMember.nationality" />
-          </div>
-        </div>
-
-          <div class="mb-3 row align-items-center">
-          <label class="col-sm-3 col-form-label">{{ 'crew.currency' | translate }}</label>
-          <div class="col-sm-9">
-            <select class="form-select" [(ngModel)]="selectedMember.currency">
-              <option value="USD">USD</option>
-             <option value="EUR">EUR</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="mb-3 row align-items-center">
-          <label class="col-sm-3 col-form-label">{{ 'crew.daysOnBoard' | translate }}</label>
-          <div class="col-sm-9">
-            <input type="number" class="form-control" [(ngModel)]="selectedMember.daysOnBoard" />
-          </div>
-        </div>
-
-        <div class="mb-3 row align-items-center">
-          <label class="col-sm-3 col-form-label">{{ 'crew.dailyRate' | translate }}</label>
-          <div class="col-sm-9">
-            <input type="number" class="form-control" [(ngModel)]="selectedMember.dailyRate" />
-          </div>
-        </div>
-
-      
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="closeModal()">{{ 'common.cancel' | translate }}</button>
-        <button type="button" class="btn btn-primary" (click)="saveMember()">{{ 'common.save' | translate }}</button>
-      </div>
-    </div>
-  </div>
-</div>
+<app-crew-edit
+  *ngIf="showEditModal"
+  [member]="selectedMember"
+  [titles]="getTitles()"
+  (cancel)="closeEditModal()"
+  (save)="saveMember($event)">
+</app-crew-edit>
 
 <app-certificate-list
   *ngIf="showCertificateModal"

@@ -8,61 +8,58 @@ import { CrewTitle } from "../../models/crew-title.model";
 import { CrewTitleService } from "../../services/crew-title.service";
 import { CertificateService } from "../../services/certificate.service";
 import { Certificate } from "../../models/certificate.model";
+
 import { CertificateListComponent } from "../certificate/certificate-list.component";
+import { CrewEditComponent } from "../crew/crew-edit.component";
 
 @Component({
   selector: 'crewList',
-  imports: [CommonModule,TranslateModule,FormsModule,CertificateListComponent],
+  imports: [CommonModule,TranslateModule,FormsModule,CertificateListComponent,CrewEditComponent],
   templateUrl: 'crew-list.component.html'
 })
 export class CrewListComponent{
   title = 'Crew List';
-  selectedMember: CrewMember | null = null;
   constructor(private crewService:CrewService,
     private crewTitleService:CrewTitleService,
   private certificateService:CertificateService){}
   ngOnInit(): void{
     this.getCrews();
-    this.getTitles();
   }
 
   getCrews():CrewMember[]{
     return this.crewService.getCrews();
   }
 
-  editMember(member: CrewMember): void {
-  this.selectedMember = { ...member };
-  }
-
-  closeModal(): void {
-    this.selectedMember = null;
-  }
-  
-  saveMember(): void {
-  if (this.selectedMember) {
-    console.log('Saving member:', this.selectedMember);
-    this.crewService.updateCrewMember(this.selectedMember);
-    this.closeModal();
-  }
-  }
-
-  deleteMember(member: CrewMember): void {
-  const confirmed = confirm(`Are you sure you want to delete ${member.firstName} ${member.lastName}?`);
-  if (confirmed) {
-    this.crewService.deleteCrewMember(member.id);
-    this.getCrews();
-  }
-}
-
-  getTitles():CrewTitle[]{
-    return this.crewTitleService.getCrewTitles();
-  }
-
   getTitleNameById(id: number): string {
     return this.crewTitleService.getTitleNameById(id);
   } 
 
-  selectedCertificates: Certificate[] = [];
+//edit member
+
+ getTitles():CrewTitle[]{
+    return this.crewTitleService.getCrewTitles();
+  }
+  
+selectedMember: CrewMember | null = null;
+showEditModal = false;
+
+openEditModal(member: CrewMember) {
+  this.selectedMember = { ...member }; 
+  this.showEditModal = true;
+}
+
+closeEditModal() {
+  this.selectedMember = null;
+  this.showEditModal = false;
+}
+
+saveMember(updated: CrewMember) {
+  this.crewService.updateCrewMember(updated);
+  this.closeEditModal();
+}
+
+//certificates
+selectedCertificates: Certificate[] = [];
 showCertificateModal = false;
 
 openCertificateModal(member: CrewMember) {
@@ -73,4 +70,13 @@ openCertificateModal(member: CrewMember) {
 closeCertificateModal = () => {
   this.showCertificateModal = false;
 };
+
+//delete member
+  deleteMember(member: CrewMember): void {
+  const confirmed = confirm(`Are you sure you want to delete ${member.firstName} ${member.lastName}?`);
+  if (confirmed) {
+    this.crewService.deleteCrewMember(member.id);
+    this.getCrews();
+  }
+}
 }
