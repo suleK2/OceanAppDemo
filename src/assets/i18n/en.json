@@ -1,0 +1,13 @@
+{
+  "crew": {
+    "list": "Crew List",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "nationality": "Nationality",
+    "title": "Title",
+    "daysOnBoard": "Days On Board",
+    "dailyRate": "Daily Rate",
+    "currency": "Currency",
+    "totalIncome": "Total Income"
+  }
+}

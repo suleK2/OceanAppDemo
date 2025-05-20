@@ -1,0 +1,13 @@
+{
+  "crew": {
+    "list": "Liste de l'équipage",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "nationality": "Nationalité",
+    "title": "Titre",
+    "daysOnBoard": "Jours à bord",
+    "dailyRate": "Taux journalier",
+    "currency": "Devise",
+    "totalIncome": "Revenu total"
+  }
+}
