@@ -9,5 +9,12 @@
     "dailyRate": "Daily Rate",
     "currency": "Currency",
     "totalIncome": "Total Income"
+  },
+  "common": {
+    "edit": "Edit",
+    "actions": "Actions",
+    "cancel":"Cancel",
+    "save":"Save",
+    "editMember": "Edit Member"
   }
 }

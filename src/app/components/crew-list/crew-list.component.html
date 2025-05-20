@@ -6,25 +6,104 @@
       <tr>
         <th scope="col">{{ 'crew.firstName' | translate }}</th>
         <th scope="col">{{ 'crew.lastName' | translate }}</th>
-        <th scope="col">{{ 'crew.nationality' | translate }}</th>
         <th scope="col">{{ 'crew.title' | translate }}</th>
+        <th scope="col">{{ 'crew.nationality' | translate }}</th>
+        <th scope="col">{{ 'crew.currency' | translate }}</th>
         <th scope="col">{{ 'crew.daysOnBoard' | translate }}</th>
         <th scope="col">{{ 'crew.dailyRate' | translate }}</th>
-        <th scope="col">{{ 'crew.currency' | translate }}</th>
         <th scope="col">{{ 'crew.totalIncome' | translate }}</th>
+        <th scope="col">{{ 'common.actions' | translate }}</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let member of getCrews()">
         <td>{{ member.firstName }}</td>
         <td>{{ member.lastName }}</td>
-        <td>{{ member.nationality }}</td>
         <td>{{ member.title }}</td>
-        <td>{{ member.daysOnBoard }}</td>
-        <td>{{ member.dailyRate }}</td>
+        <td>{{ member.nationality }}</td>
         <td>{{ member.currency }}</td>
-        <td>{{ member.totalIncome }}</td>
+        <td>{{ member.daysOnBoard }}</td>
+        <td>{{ member.dailyRate | currency: member.currency}}</td>
+        <td>{{ member.daysOnBoard * member.dailyRate | currency: member.currency }}</td>
+        <td>
+  <button class="btn btn-sm btn-outline-primary" (click)="editMember(member)">
+    <i class="fas fa-edit"></i> {{ 'common.edit' | translate }}
+  </button>
+</td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<div class="modal fade show d-block" tabindex="-1" *ngIf="selectedMember" style="background-color: rgba(0,0,0,0.5);">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ 'common.editMember' | translate }}</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="mb-3 row align-items-center">
+          <label class="col-sm-3 col-form-label">{{ 'crew.firstName' | translate }}</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" [(ngModel)]="selectedMember.firstName" />
+          </div>
+        </div>
+
+        <div class="mb-3 row align-items-center">
+          <label class="col-sm-3 col-form-label">{{ 'crew.lastName' | translate }}</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" [(ngModel)]="selectedMember.lastName" />
+          </div>
+        </div>
+
+        <div class="mb-3 row align-items-center">
+          <label class="col-sm-3 col-form-label">{{ 'crew.title' | translate }}</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" [(ngModel)]="selectedMember.title" />
+          </div>
+        </div>
+
+        <div class="mb-3 row align-items-center">
+          <label class="col-sm-3 col-form-label">{{ 'crew.nationality' | translate }}</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" [(ngModel)]="selectedMember.nationality" />
+          </div>
+        </div>
+
+          <div class="mb-3 row align-items-center">
+          <label class="col-sm-3 col-form-label">{{ 'crew.currency' | translate }}</label>
+          <div class="col-sm-9">
+            <select class="form-select" [(ngModel)]="selectedMember.currency">
+              <option value="USD">USD</option>
+             <option value="EUR">EUR</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-3 row align-items-center">
+          <label class="col-sm-3 col-form-label">{{ 'crew.daysOnBoard' | translate }}</label>
+          <div class="col-sm-9">
+            <input type="number" class="form-control" [(ngModel)]="selectedMember.daysOnBoard" />
+          </div>
+        </div>
+
+        <div class="mb-3 row align-items-center">
+          <label class="col-sm-3 col-form-label">{{ 'crew.dailyRate' | translate }}</label>
+          <div class="col-sm-9">
+            <input type="number" class="form-control" [(ngModel)]="selectedMember.dailyRate" />
+          </div>
+        </div>
+
+      
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">{{ 'common.cancel' | translate }}</button>
+        <button type="button" class="btn btn-primary" (click)="saveMember()">{{ 'common.save' | translate }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+

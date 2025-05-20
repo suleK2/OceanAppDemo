@@ -1,16 +1,18 @@
 import { Component } from "@angular/core";  
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { CrewService } from "../../services/crew.service";
 import { CrewMember } from "../../models/crew-member.model";
 
 @Component({
   selector: 'crewList',
-  imports: [CommonModule,TranslateModule],
+  imports: [CommonModule,TranslateModule,FormsModule],
   templateUrl: 'crew-list.component.html'
 })
-export class CrewListComponent {
+export class CrewListComponent{
   title = 'Crew List';
+  selectedMember: CrewMember | null = null;
   constructor(private crewService:CrewService){}
   ngOnInit(): void{
     this.getCrews();
@@ -19,4 +21,20 @@ export class CrewListComponent {
   getCrews():CrewMember[]{
     return this.crewService.getCrews();
   }
+
+  editMember(member: CrewMember): void {
+  this.selectedMember = { ...member };
+  }
+
+  closeModal(): void {
+    this.selectedMember = null;
+  }
+  
+  saveMember(): void {
+  if (this.selectedMember) {
+    console.log('Saving member:', this.selectedMember);
+    this.crewService.updateCrewMember(this.selectedMember);
+    this.closeModal();
+  }
+}
 }

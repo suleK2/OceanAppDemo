@@ -9,5 +9,12 @@
     "dailyRate": "Taxa diária",
     "currency": "Moeda",
     "totalIncome": "Renda total"
+  },
+  "common": {
+    "edit": "Editar",
+    "actions": "Ações",
+    "cancel": "Cancelar",
+    "save": "Salvar",
+    "editMember": "Editar membro"
   }
 }

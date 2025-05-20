@@ -9,8 +9,4 @@ export class CrewMember {
     public dailyRate: number,
     public currency: string
   ) {}
-
-  get totalIncome(): number {
-    return this.daysOnBoard * this.dailyRate;
-  }
 }

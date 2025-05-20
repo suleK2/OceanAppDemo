@@ -11,4 +11,10 @@ export class CrewService{
     getCrews():CrewMember[]{
         return Crews;
     }
+    updateCrewMember(updatedMember: CrewMember): void {
+    const index = Crews.findIndex(member => member.id === updatedMember.id);
+     if (index !== -1) {
+        Crews[index] = { ...updatedMember };
+  }
+}
 }
