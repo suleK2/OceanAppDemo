@@ -9,4 +9,7 @@ export class CrewMember {
     public dailyRate: number,
     public currencyId: number
   ) {}
+  public displayNationality?: string;
+  public displayTitle?: string;
+  public displayCurrency?: string;
 }

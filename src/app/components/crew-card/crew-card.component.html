@@ -1,0 +1,29 @@
+
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a 
+      class="nav-link" 
+      [class.active]="activeTab === 'member'"
+      (click)="activeTab = 'member'">
+      Crew Member
+    </a>
+  </li>
+  <li class="nav-item">
+    <a 
+      class="nav-link" 
+      [class.active]="activeTab === 'certificates'"
+      (click)="activeTab = 'certificates'">
+      Other Tab
+    </a>
+  </li>
+</ul>
+
+<div class="tab-content p-3 border border-top-0">
+  <div *ngIf="activeTab === 'member'">
+    <app-crew-member [member]="member"></app-crew-member>
+  </div>
+  <div *ngIf="activeTab === 'certificates'">
+    <!-- Content for the second tab -->
+    <p>This is the other tab content.</p>
+  </div>
+</div>

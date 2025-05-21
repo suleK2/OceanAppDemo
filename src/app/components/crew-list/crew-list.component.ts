@@ -11,6 +11,7 @@ import { Currency } from "../../models/currency.model";
 
 import { CertificateListComponent } from "../certificate/certificate-list.component";
 import { CrewEditComponent } from "../crew-edit/crew-edit.component";
+import { CrewCardComponent } from "../crew-card/crew-card.component";
 
 import { CrewService } from "../../services/crew.service";
 import { CrewTitleService } from "../../services/crew-title.service";
@@ -20,7 +21,7 @@ import { CurrencyService } from '../../services/currency.service';
 
 @Component({
   selector: 'crewList',
-  imports: [CommonModule, TranslateModule, FormsModule, CertificateListComponent, CrewEditComponent],
+  imports: [CommonModule, TranslateModule, FormsModule, CertificateListComponent, CrewEditComponent,CrewCardComponent],
   templateUrl: 'crew-list.component.html'
 })
 
@@ -47,18 +48,6 @@ export class CrewListComponent {
 
   getCurrencies():Currency[]{
     return this.currencyService.getCurrencies();
-  }
-
-  // get descriptions
-  getTitleNameById(id: number): string {
-    return this.crewTitleService.getTitleNameById(id);
-  }
-  getNameById(id: number): string {
-    return this.nationalityService.getNameById(id);
-  }
-
-  getCurrencyCodeById(id: number): string {
-    return this.currencyService.getCurrencyCodeById(id);
   }
 
   //edit member
@@ -126,5 +115,14 @@ export class CrewListComponent {
   };
     this.showEditModal = true;
   }
+  showCrewCardModal = false;
+  showCrewCard(member: CrewMember) {
+  this.selectedMember = member;
+  this.showCrewCardModal = true;
+}
+
+closeCrewCard() {
+  this.showCrewCardModal = false;
+}
 
 }

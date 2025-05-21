@@ -25,16 +25,19 @@
       <tr *ngFor="let member of getCrews()">
         <td>{{ member.firstName }}</td>
         <td>{{ member.lastName }}</td>
-        <td>{{ 'titles.' + getTitleNameById(member.titleId) | translate}}</td>
-        <td>{{ getNameById(member.nationalityId) }}</td>
-        <td>{{ getCurrencyCodeById(member.currencyId) }}</td>
+        <td>{{ 'titles.' + member.displayTitle | translate}}</td>
+        <td>{{ member.displayNationality }}</td>
+        <td>{{ member.displayCurrency }}</td>
         <td>{{ member.daysOnBoard }}</td>
-        <td>{{ member.dailyRate | currency: getCurrencyCodeById(member.currencyId)}}</td>
-        <td>{{ member.daysOnBoard * member.dailyRate | currency: getCurrencyCodeById(member.currencyId) }}</td>
+        <td>{{ member.dailyRate | currency: member.displayCurrency}}</td>
+        <td>{{ member.daysOnBoard * member.dailyRate | currency: member.displayCurrency }}</td>
         <td (click)="openCertificateModal(member)">
   <i class="fas fa-certificate text-primary" style="cursor:pointer"></i>
 </td>
         <td>
+          <button class="btn btn-sm btn-outline-info me-1" (click)="showCrewCard(member)">
+    <i class="fas fa-id-card"></i> {{ 'common.view' | translate }}
+  </button>
 <button class="btn btn-sm btn-outline-primary" (click)="openEditModal(member)">
   <i class="fas fa-edit"></i> {{ 'common.edit' | translate }}
 </button>
@@ -64,3 +67,8 @@
   [close]="closeCertificateModal">
 </app-certificate-list>
 
+<app-crew-card
+  *ngIf="showCrewCardModal"
+  [member]="selectedMember"
+  (close)="closeCrewCard()">
+</app-crew-card>
