@@ -1,4 +1,9 @@
-<h2 class="text-center mb-4">{{ 'crew.list' | translate }}</h2>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>{{ 'crew.list' | translate }}</h2>
+  <button class="btn btn-success" (click)="openAddModal()">
+    <i class="fas fa-plus"></i> {{ 'common.addNew' | translate }}
+  </button>
+</div>
 
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">

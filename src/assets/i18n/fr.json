@@ -18,7 +18,8 @@
     "save": "Enregistrer",
     "editMember": "Modifier le membre",
     "delete": "Supprimer",
-    "close": "Fermer"
+    "close": "Fermer",
+    "addNew": "Ajouter un nouveau membre d'équipage"
   },
   "titles": {
   "captain": "Capitaine",

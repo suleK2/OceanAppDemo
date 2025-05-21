@@ -35,7 +35,7 @@ export class CrewListComponent {
   ngOnInit(): void {
     this.getCrews();
   }
-
+  
   // get all lists
   getCrews(): CrewMember[] {
     return this.crewService.getCrews();
@@ -81,6 +81,10 @@ export class CrewListComponent {
   }
 
   saveMember(updated: CrewMember) {
+    //check if it is a new record
+    if(updated.id == 0){
+      this.crewService.addNewCrewMember(updated);
+    }
     this.crewService.updateCrewMember(updated);
     this.closeEditModal();
   }
@@ -106,4 +110,21 @@ export class CrewListComponent {
       this.getCrews();
     }
   }
+
+  //add new
+
+  openAddModal() {
+    this.selectedMember = {
+    id: 0, 
+    firstName: '',
+    lastName: '',
+    titleId:0,
+    nationalityId : 0,
+    currencyId: 0,
+    daysOnBoard: 0,
+    dailyRate: 0,
+  };
+    this.showEditModal = true;
+  }
+
 }

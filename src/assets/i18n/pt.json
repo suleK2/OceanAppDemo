@@ -18,7 +18,8 @@
     "save": "Salvar",
     "editMember": "Editar membro",
     "delete": "Excluir",
-    "close": "Fechar"
+    "close": "Fechar",
+    "addNew": "Adicionar novo membro da tripulação"
   },
   "titles": {
   "captain": "Capitão",
