@@ -32,5 +32,11 @@
     "issueDate": "Date de Délivrance",
     "expiryDate": "Date d'Expiration",
     "details": "Détails du Certificat"
-  }
+  },
+   "nav": {
+      "home": "Accueil",
+      "crewList": "Liste d'Équipage",
+      "settings": "Paramètres",
+      "certificateType": "Type de Certificat"
+    }
 }

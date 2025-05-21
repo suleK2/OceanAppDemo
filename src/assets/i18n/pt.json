@@ -32,5 +32,11 @@
     "issueDate": "Data de Emissão",
     "expiryDate": "Data de Validade",
     "details": "Detalhes do Certificado"
-  }
+  },
+  "nav": {
+      "home": "Início",
+      "crewList": "Lista de Tripulação",
+      "settings": "Configurações",
+      "certificateType": "Tipo de Certificado"
+    }
 }

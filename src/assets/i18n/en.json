@@ -32,5 +32,11 @@
     "issueDate": "Issue Date",
     "expiryDate": "Expiry Date",
     "details": "Certificate Details"
+  },
+  "nav": {
+  "home": "Home",
+  "crewList": "Crew List",
+  "settings": "Settings",
+  "certificateType": "Certificate Type"
   }
 }
