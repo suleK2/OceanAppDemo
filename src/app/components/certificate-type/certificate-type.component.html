@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>{{ 'nav.certificateType' | translate }}</h2>
+    <button class="btn btn-primary mb-2" (click)="openAddModal()">
+        <i class="fas fa-plus"></i> {{ 'common.addNewType' | translate }}
+    </button>
+</div>
+
+
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>{{ 'common.name' | translate }}</th>
+                <th>{{ 'common.description' | translate }}</th>
+                <th scope="col">{{ 'common.actions' | translate }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let type of getCertificateTypes()">
+                <td>{{ type.name }}</td>
+                <td>{{ type.description }}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary" (click)="openEdit(type)">
+                        <i class="fas fa-edit"></i> {{ 'common.edit' | translate }}
+                    </button>
+
+                    <button class="btn btn-sm btn-outline-danger" (click)="deleteType(type)">
+                        <i class="fas fa-trash"></i> {{ 'common.delete' | translate }}
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<certificate-type-edit *ngIf="editing" [certificateType]="selectedCertificateType" (save)="saveEdit($event)"
+    (close)="editing = false">
+</certificate-type-edit>

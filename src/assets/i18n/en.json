@@ -19,7 +19,10 @@
     "editMember": "Edit Member",
     "delete": "Delete",
     "close":"Close",
-    "addNew":"Add New Crew Member"
+    "addNew":"Add New Crew Member",
+    "name" :"Name",
+    "description":"Description",
+    "addNewType":"Add New Certificate Type"
   },
   "titles": {
   "captain": "Captain",

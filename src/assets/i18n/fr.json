@@ -19,7 +19,10 @@
     "editMember": "Modifier le membre",
     "delete": "Supprimer",
     "close": "Fermer",
-    "addNew": "Ajouter un nouveau membre d'équipage"
+    "addNew": "Ajouter un nouveau membre d'équipage",
+    "name": "Nom",
+    "description": "Description",
+    "addNewType": "Ajouter un nouveau type de certificat"
   },
   "titles": {
   "captain": "Capitaine",
