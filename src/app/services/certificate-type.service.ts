@@ -7,12 +7,9 @@ import { Types } from "../data/certificate-type-list.data";
 })
 
 export class CertificateTypeService {
-  constructor() { }
+
   getCertificateTypes(): CertificateType[] {
     return Types;
-  }
-  getDescriptionById(id: number): string {
-    return Types.find(t => t.id === id)?.name || '';
   }
 
   addNewType(newType: CertificateType): void {

@@ -5,7 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { CrewMember } from "../../models/crew-member.model";
 
-import { CertificateListComponent } from "../certificate/certificate-list.component";
+import { CertificateListComponent } from "../certificate-list/certificate-list.component";
 import { CrewEditComponent } from "../crew-edit/crew-edit.component";
 import { CrewCardComponent } from "../crew-card/crew-card.component";
 

@@ -20,12 +20,12 @@ export class CrewService {
   titles: CrewTitle[] = [];
   nationalities: Nationality[] = [];
   currencies: Currency[] = [];
-  certificates: Certificate[]=[];
+  certificates: Certificate[] = [];
 
-  constructor(private crewTitleService: CrewTitleService,
-    private nationalityService: NationalityService,
-    private currencyService: CurrencyService,
-    private certificateService: CertificateService
+  constructor(crewTitleService: CrewTitleService,
+    nationalityService: NationalityService,
+    currencyService: CurrencyService,
+    certificateService: CertificateService
   ) {
     this.titles = crewTitleService.getCrewTitles();
     this.nationalities = nationalityService.getNationalities();
@@ -38,7 +38,7 @@ export class CrewService {
       const title = this.titles.find(t => t.id === member.titleId);
       const nat = this.nationalities.find(n => n.id === member.nationalityId);
       const cur = this.currencies.find(c => c.id === member.currencyId);
-      const cert = this.certificates.filter(ce=>ce.crewId === member.id);
+      const cert = this.certificates.filter(ce => ce.crewId === member.id);
 
       return {
         ...member,
