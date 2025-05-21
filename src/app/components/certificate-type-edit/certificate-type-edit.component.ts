@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './certificate-type-edit.component.html'
 })
 export class CertificateTypeEditComponent {
-  @Input() certificateType: CertificateType = new CertificateType(0, '', '');
+  @Input() certificateType!: CertificateType;
   @Output() save = new EventEmitter<CertificateType>();
   @Output() close = new EventEmitter<void>();
 

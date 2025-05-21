@@ -10,12 +10,12 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './certificate-list.component.html'
 })
 export class CertificateListComponent {
-  @Input() certificates: Certificate[] = [];
+  @Input() certificates!: Certificate[];
   @Input() close: () => void = () => {};
 
   constructor(private certificateTypeService: CertificateTypeService) {}
 
   getTypeName(id: number): string {
-    return this.certificateTypeService.getDescriptionById(id); // or return translated key
+    return this.certificateTypeService.getDescriptionById(id);
   }
 }

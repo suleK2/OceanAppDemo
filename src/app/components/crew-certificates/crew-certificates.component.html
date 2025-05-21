@@ -1,0 +1,21 @@
+<div *ngIf="certificates?.length; else noCertificates">
+  <div class="row">
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let cert of certificates">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-info text-white">
+          <h5 class="mb-0">{{ cert.displayType || ('certificate.unknownType' | translate) }}</h5>
+        </div>
+        <div class="card-body">
+          <p><strong>{{ 'certificate.issueDate' | translate }}:</strong> {{ cert.issueDate | date }}</p>
+          <p><strong>{{ 'certificate.expiryDate' | translate }}:</strong> {{ cert.expiryDate | date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noCertificates>
+  <div class="alert alert-secondary text-center">
+    {{ 'certificate.noCertificates' | translate }}
+  </div>
+</ng-template>

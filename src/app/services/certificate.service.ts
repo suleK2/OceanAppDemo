@@ -1,14 +1,29 @@
 import { Injectable } from "@angular/core";
 import { Certificate } from "../models/certificate.model";
 import { Certificates } from "../data/certificate-list.data";
+import { CertificateTypeService } from "./certificate-type.service";
+import { CertificateType } from "../models/certificate-type.model";
 
 @Injectable({ 
     providedIn:'root'
 })
 
 export class CertificateService{
-    constructor(){}
+   types: CertificateType[] = [];
+    constructor(private certificateTypeService:CertificateTypeService){
+      this.types = certificateTypeService.getCertificateTypes();
+    }
   
+    getCertificates(){
+      return Certificates.map(cert => {
+            const selectedType = this.types.find(t => t.id === cert.certificateTypeId);
+          
+            return {
+              ...cert,
+              displayType: selectedType ? selectedType.name : ''
+            };
+          });
+    }
     getCertificatesByCrewId(crewId: number): Certificate[] {
     return Certificates.filter(cert => cert.crewId === crewId);
   }

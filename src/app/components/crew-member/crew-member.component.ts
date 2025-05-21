@@ -10,5 +10,5 @@ import { CommonModule } from '@angular/common';
 })
 
 export class CrewMemberComponent {
-    @Input() member: CrewMember | null = null;
+    @Input() member!: CrewMember;
 }

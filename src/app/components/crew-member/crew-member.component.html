@@ -1,32 +1,32 @@
 <div class="card shadow-sm mb-4" style="max-width: 600px; margin: auto;">
   <div class="card-header bg-primary text-white">
-    <h4>{{ member?.firstName }} {{ member?.lastName }}</h4>
-    <small>{{ 'titles.' + member?.displayTitle| translate }}</small>
+    <h4>{{ member.firstName }} {{ member.lastName }}</h4>
+    <small>{{ 'titles.' + member.displayTitle| translate }}</small>
   </div>
   <div class="card-body">
     <div class="row mb-2">
       <div class="col-5 fw-semibold">{{ 'crew.nationality' | translate }}:</div>
-      <div class="col-7">{{ member?.displayNationality }}</div>
+      <div class="col-7">{{ member.displayNationality }}</div>
     </div>
 
     <div class="row mb-2">
       <div class="col-5 fw-semibold">{{ 'crew.currency' | translate }}:</div>
-      <div class="col-7">{{ member?.displayCurrency }}</div>
+      <div class="col-7">{{ member.displayCurrency }}</div>
     </div>
 
     <div class="row mb-2">
       <div class="col-5 fw-semibold">{{ 'crew.daysOnBoard' | translate }}:</div>
-      <div class="col-7">{{ member?.daysOnBoard }}</div>
+      <div class="col-7">{{ member.daysOnBoard }}</div>
     </div>
 
     <div class="row mb-2">
       <div class="col-5 fw-semibold">{{ 'crew.dailyRate' | translate }}:</div>
-      <div class="col-7">{{ member?.dailyRate | currency: member?.displayCurrency }}</div>
+      <div class="col-7">{{ member.dailyRate | currency: member.displayCurrency }}</div>
     </div>
 
     <div class="row mb-2">
       <div class="col-5 fw-semibold">{{ 'crew.totalIncome' | translate }}:</div>
-      <div class="col-7">{{ ((member?.daysOnBoard ?? 0) * (member?.dailyRate ?? 0)) | currency: member?.displayCurrency }}</div>
+      <div class="col-7">{{ ((member.daysOnBoard) * (member.dailyRate)) | currency: member.displayCurrency }}</div>
     </div>
   </div>
 </div>

@@ -9,7 +9,8 @@
     "dailyRate": "Taux journalier",
     "currency": "Devise",
     "totalIncome": "Revenu total",
-    "certificates": "Certificats"
+    "certificates": "Certificats",
+    "detail": "Détail du membre d'équipage"
   },
   "common": {
     "edit": "Modifier",
@@ -22,7 +23,8 @@
     "addNew": "Ajouter un nouveau membre d'équipage",
     "name": "Nom",
     "description": "Description",
-    "addNewType": "Ajouter un nouveau type de certificat"
+    "addNewType": "Ajouter un nouveau type de certificat",
+    "view": "Voir la fiche de l'équipage"
   },
   "titles": {
   "captain": "Capitaine",
@@ -34,7 +36,8 @@
     "type": "Type",
     "issueDate": "Date de Délivrance",
     "expiryDate": "Date d'Expiration",
-    "details": "Détails du Certificat"
+    "details": "Détails du Certificat",
+    "noCertificates": "Aucun certificat"
   },
    "nav": {
       "home": "Accueil",

@@ -6,4 +6,5 @@ export class Certificate {
     public issueDate: string,
     public expiryDate: string
   ) {}
+  public displayType?:string;
 }

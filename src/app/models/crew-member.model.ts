@@ -1,3 +1,5 @@
+import { Certificate } from "./certificate.model";
+
 export class CrewMember {
   constructor(
     public id: number,
@@ -12,4 +14,5 @@ export class CrewMember {
   public displayNationality?: string;
   public displayTitle?: string;
   public displayCurrency?: string;
+  public certificates?: Certificate[];
 }

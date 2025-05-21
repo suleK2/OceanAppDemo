@@ -14,7 +14,7 @@ import { Currency } from '../../models/currency.model';
 })
 
 export class CrewEditComponent {
-  @Input() member: CrewMember | null = null;
+  @Input() member!: CrewMember;
   @Input() titles: CrewTitle[] = [];
   @Input() nationalities: Nationality[] = [];
   @Input() currencies: Currency[] = [];

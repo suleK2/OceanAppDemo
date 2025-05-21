@@ -15,7 +15,6 @@ import { CrewCardComponent } from "../crew-card/crew-card.component";
 
 import { CrewService } from "../../services/crew.service";
 import { CrewTitleService } from "../../services/crew-title.service";
-import { CertificateService } from "../../services/certificate.service";
 import { NationalityService } from '../../services/nationality.service';
 import { CurrencyService } from '../../services/currency.service';
 
@@ -29,7 +28,6 @@ export class CrewListComponent {
 
   constructor(private crewService: CrewService,
     private crewTitleService: CrewTitleService,
-    private certificateService: CertificateService,
     private nationalityService:NationalityService,
     private currencyService:CurrencyService) { }
 
@@ -56,7 +54,7 @@ export class CrewListComponent {
     return this.crewTitleService.getCrewTitles();
   }
 
-  selectedMember: CrewMember | null = null;
+  selectedMember!: CrewMember;
   showEditModal = false;
 
   openEditModal(member: CrewMember) {
@@ -65,7 +63,6 @@ export class CrewListComponent {
   }
 
   closeEditModal() {
-    this.selectedMember = null;
     this.showEditModal = false;
   }
 
@@ -83,7 +80,7 @@ export class CrewListComponent {
   showCertificateModal = false;
 
   openCertificateModal(member: CrewMember) {
-    this.selectedCertificates = this.certificateService.getCertificatesByCrewId(member.id);
+    this.selectedCertificates = member.certificates ?? [];
     this.showCertificateModal = true;
   }
 

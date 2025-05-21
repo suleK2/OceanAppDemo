@@ -27,7 +27,7 @@ export class CertificateTypeComponent {
   }
   //edit 
   editing = false;
-  selectedCertificateType: CertificateType = new CertificateType(0, '', '');
+  selectedCertificateType!: CertificateType;
 
   openEdit(certificate: CertificateType) {
     this.selectedCertificateType = { ...certificate };

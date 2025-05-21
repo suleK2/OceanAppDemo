@@ -9,7 +9,8 @@
     "dailyRate": "Taxa diária",
     "currency": "Moeda",
     "totalIncome": "Renda total",
-    "certificates": "Certificados"
+    "certificates": "Certificados",
+    "detail": "Detalhes do membro da tripulação"
   },
   "common": {
     "edit": "Editar",
@@ -22,7 +23,8 @@
     "addNew": "Adicionar novo membro da tripulação",
     "name": "Nome",
     "description": "Descrição",
-    "addNewType": "Adicionar novo tipo de certificado"
+    "addNewType": "Adicionar novo tipo de certificado",
+    "view": "Ver ficha da tripulação"
   },
   "titles": {
   "captain": "Capitão",
@@ -34,7 +36,8 @@
     "type": "Tipo",
     "issueDate": "Data de Emissão",
     "expiryDate": "Data de Validade",
-    "details": "Detalhes do Certificado"
+    "details": "Detalhes do Certificado",
+    "noCertificates": "Nenhum certificado"
   },
   "nav": {
       "home": "Início",

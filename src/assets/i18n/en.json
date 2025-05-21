@@ -9,7 +9,8 @@
     "dailyRate": "Daily Rate",
     "currency": "Currency",
     "totalIncome": "Total Income",
-    "certificates": "Certificates"
+    "certificates": "Certificates",
+    "detail": "Crew Member Detail"
   },
   "common": {
     "edit": "Edit",
@@ -22,7 +23,8 @@
     "addNew":"Add New Crew Member",
     "name" :"Name",
     "description":"Description",
-    "addNewType":"Add New Certificate Type"
+    "addNewType":"Add New Certificate Type",
+    "view": "View Crew Card"
   },
   "titles": {
   "captain": "Captain",
@@ -34,7 +36,8 @@
     "type": "Type",
     "issueDate": "Issue Date",
     "expiryDate": "Expiry Date",
-    "details": "Certificate Details"
+    "details": "Certificate Details",
+    "noCertificates": "No certificates"
   },
   "nav": {
   "home": "Home",

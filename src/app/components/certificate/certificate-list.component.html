@@ -16,7 +16,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let cert of certificates">
-              <td>{{ getTypeName(cert.certificateTypeId) }}</td>
+              <td>{{ cert.displayType }}</td>
               <td>{{ cert.issueDate }}</td>
               <td>{{ cert.expiryDate }}</td>
             </tr>

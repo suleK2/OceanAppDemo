@@ -5,7 +5,7 @@
       class="nav-link" 
       [class.active]="activeTab === 'member'"
       (click)="activeTab = 'member'">
-      Crew Member
+      {{ "crew.detail" | translate}}
     </a>
   </li>
   <li class="nav-item">
@@ -13,7 +13,7 @@
       class="nav-link" 
       [class.active]="activeTab === 'certificates'"
       (click)="activeTab = 'certificates'">
-      Other Tab
+      {{ "crew.certificates" | translate}}
     </a>
   </li>
 </ul>
@@ -23,7 +23,6 @@
     <app-crew-member [member]="member"></app-crew-member>
   </div>
   <div *ngIf="activeTab === 'certificates'">
-    <!-- Content for the second tab -->
-    <p>This is the other tab content.</p>
+  <app-crew-certificates [member]="member"></app-crew-certificates>
   </div>
 </div>
