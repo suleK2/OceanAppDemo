@@ -11,8 +11,8 @@ import { CrewMember } from '../../models/crew-member.model';
 })
 
 export class CrewCertificatesComponent {
-    private _member!: CrewMember;
- certificates: Certificate[] = [];
+   private _member!: CrewMember;
+   certificates: Certificate[] = [];
   @Input() 
   set member(value: CrewMember) {
     this._member = value;

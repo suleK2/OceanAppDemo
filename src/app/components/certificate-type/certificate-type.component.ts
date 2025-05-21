@@ -17,14 +17,6 @@ export class CertificateTypeComponent {
     return this.certificateTypeService.getCertificateTypes();
   }
 
-  //delete type
-  deleteType(type: CertificateType): void {
-    const confirmed = confirm(`Are you sure you want to delete ${type.id} ${type.name}?`);
-    if (confirmed) {
-      this.certificateTypeService.deleteType(type.id);
-      this.getCertificateTypes();
-    }
-  }
   //edit 
   editing = false;
   selectedCertificateType!: CertificateType;

@@ -1,21 +1,27 @@
 import { Component, Input } from '@angular/core';
 import { Certificate } from '../../models/certificate.model';
-import { CertificateTypeService } from '../../services/certificate-type.service';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { CrewMember } from '../../models/crew-member.model';
 
 @Component({
   selector: 'app-certificate-list',
-  imports: [CommonModule,TranslateModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './certificate-list.component.html'
 })
 export class CertificateListComponent {
-  @Input() certificates!: Certificate[];
-  @Input() close: () => void = () => {};
-
-  constructor(private certificateTypeService: CertificateTypeService) {}
-
-  getTypeName(id: number): string {
-    return this.certificateTypeService.getDescriptionById(id);
+  private _member!: CrewMember;
+  certificates: Certificate[] = [];
+  @Input()
+  set member(value: CrewMember) {
+    this._member = value;
+    this.certificates = value.certificates ?? [];
+    console.log('Certificates:', this.certificates);
   }
+
+  get member(): CrewMember {
+    return this._member;
+  }
+  @Input() close: () => void = () => { };
+
 }

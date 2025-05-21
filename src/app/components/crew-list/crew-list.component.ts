@@ -4,55 +4,33 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { CrewMember } from "../../models/crew-member.model";
-import { CrewTitle } from "../../models/crew-title.model";
-import { Certificate } from "../../models/certificate.model";
-import { Nationality } from "../../models/nationality.model";
-import { Currency } from "../../models/currency.model";
 
 import { CertificateListComponent } from "../certificate/certificate-list.component";
 import { CrewEditComponent } from "../crew-edit/crew-edit.component";
 import { CrewCardComponent } from "../crew-card/crew-card.component";
 
 import { CrewService } from "../../services/crew.service";
-import { CrewTitleService } from "../../services/crew-title.service";
-import { NationalityService } from '../../services/nationality.service';
-import { CurrencyService } from '../../services/currency.service';
 
 @Component({
   selector: 'crewList',
-  imports: [CommonModule, TranslateModule, FormsModule, CertificateListComponent, CrewEditComponent,CrewCardComponent],
+  imports: [CommonModule, TranslateModule, FormsModule, CertificateListComponent, CrewEditComponent, CrewCardComponent],
   templateUrl: 'crew-list.component.html'
 })
 
 export class CrewListComponent {
 
-  constructor(private crewService: CrewService,
-    private crewTitleService: CrewTitleService,
-    private nationalityService:NationalityService,
-    private currencyService:CurrencyService) { }
+  constructor(private crewService: CrewService) { }
 
   ngOnInit(): void {
     this.getCrews();
   }
-  
+
   // get all lists
   getCrews(): CrewMember[] {
     return this.crewService.getCrews();
   }
 
-  getNationalities():Nationality[]{
-    return this.nationalityService.getNationalities();
-  }
-
-  getCurrencies():Currency[]{
-    return this.currencyService.getCurrencies();
-  }
-
   //edit member
-
-  getTitles(): CrewTitle[] {
-    return this.crewTitleService.getCrewTitles();
-  }
 
   selectedMember!: CrewMember;
   showEditModal = false;
@@ -68,7 +46,7 @@ export class CrewListComponent {
 
   saveMember(updated: CrewMember) {
     //check if it is a new record
-    if(updated.id == 0){
+    if (updated.id == 0) {
       this.crewService.addNewCrewMember(updated);
     }
     this.crewService.updateCrewMember(updated);
@@ -76,11 +54,10 @@ export class CrewListComponent {
   }
 
   //certificates
-  selectedCertificates: Certificate[] = [];
   showCertificateModal = false;
 
   openCertificateModal(member: CrewMember) {
-    this.selectedCertificates = member.certificates ?? [];
+    this.selectedMember = member;
     this.showCertificateModal = true;
   }
 
@@ -101,25 +78,25 @@ export class CrewListComponent {
 
   openAddModal() {
     this.selectedMember = {
-    id: 0, 
-    firstName: '',
-    lastName: '',
-    titleId:0,
-    nationalityId : 0,
-    currencyId: 0,
-    daysOnBoard: 0,
-    dailyRate: 0,
-  };
+      id: 0,
+      firstName: '',
+      lastName: '',
+      titleId: 0,
+      nationalityId: 0,
+      currencyId: 0,
+      daysOnBoard: 0,
+      dailyRate: 0,
+    };
     this.showEditModal = true;
   }
   showCrewCardModal = false;
   showCrewCard(member: CrewMember) {
-  this.selectedMember = member;
-  this.showCrewCardModal = true;
-}
+    this.selectedMember = member;
+    this.showCrewCardModal = true;
+  }
 
-closeCrewCard() {
-  this.showCrewCardModal = false;
-}
+  closeCrewCard() {
+    this.showCrewCardModal = false;
+  }
 
 }
