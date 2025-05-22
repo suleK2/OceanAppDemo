@@ -1,0 +1,9 @@
+.welcome-header {
+  background-color: #f0f4ff; /* subtle soft blue background */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(30, 42, 120, 0.2); /* light navy shadow */
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 40px 30px;
+}

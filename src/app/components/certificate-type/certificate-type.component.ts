@@ -9,7 +9,8 @@ import { CertificateTypeEditComponent } from '../certificate-type-edit/certifica
 @Component({
   selector: 'app-certificate-type',
   imports: [TranslateModule, CommonModule, FormsModule, CertificateTypeEditComponent],
-  templateUrl: './certificate-type.component.html'
+  templateUrl: './certificate-type.component.html',
+  styleUrl: './certificate-type.component.css'
 })
 export class CertificateTypeComponent {
   constructor(private certificateTypeService: CertificateTypeService) { }

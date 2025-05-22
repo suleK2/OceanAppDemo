@@ -18,7 +18,8 @@ import { CertificateService } from "../../services/certificate.service";
   selector: 'crewList',
   imports: [CommonModule, TranslateModule, FormsModule, CertificateListComponent,
     CrewEditComponent, CrewCardComponent, CertificateComponent],
-  templateUrl: 'crew-list.component.html'
+  templateUrl: 'crew-list.component.html',
+  styleUrl: './crew-list.component.css'
 })
 
 export class CrewListComponent {

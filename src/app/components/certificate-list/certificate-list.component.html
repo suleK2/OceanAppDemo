@@ -6,7 +6,8 @@
         <button type="button" class="btn-close" (click)="close()" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <table class="table table-striped">
+        <div class="table-container">
+        <table class="table table-bordered">
           <thead>
             <tr>
               <th>{{ 'certificate.type' | translate }}</th>
@@ -22,6 +23,7 @@
             </tr>
           </tbody>
         </table>
+</div>
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary" (click)="close()">{{ 'common.close' | translate }}</button>

@@ -9,7 +9,8 @@ import { CertificateService } from '../../services/certificate.service';
 @Component({
   selector: 'app-certificate-list',
   imports: [CommonModule, TranslateModule],
-  templateUrl: './certificate-list.component.html'
+  templateUrl: './certificate-list.component.html',
+  styleUrl: './certificate-list.component.css'
 })
 export class CertificateListComponent {
   constructor(private certificateService:CertificateService){}
