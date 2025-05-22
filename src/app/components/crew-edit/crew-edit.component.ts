@@ -27,9 +27,9 @@ export class CrewEditComponent {
   @Output() save = new EventEmitter<CrewMember>();
 
   constructor(
-    private crewTitleService: CrewTitleService,
-    private nationalityService: NationalityService,
-    private currencyService: CurrencyService) {
+    crewTitleService: CrewTitleService,
+    nationalityService: NationalityService,
+    currencyService: CurrencyService) {
     this.titles = crewTitleService.getCrewTitles();
     this.nationalities = nationalityService.getNationalities();
     this.currencies = currencyService.getCurrencies();

@@ -24,7 +24,9 @@
     "name": "Nom",
     "description": "Description",
     "addNewType": "Ajouter un nouveau type de certificat",
-    "view": "Voir la fiche de l'équipage"
+    "viewCard": "Voir la carte",
+    "view": "Voir",
+    "add": "Ajouter"
   },
   "titles": {
   "captain": "Capitaine",

@@ -24,13 +24,15 @@
     "name": "Nome",
     "description": "Descrição",
     "addNewType": "Adicionar novo tipo de certificado",
-    "view": "Ver ficha da tripulação"
+    "viewCard": "Ver Cartão",
+    "view": "Ver",
+    "add": "Adicionar"
   },
   "titles": {
-  "captain": "Capitão",
-  "engineer": "Engenheiro",
-  "cook": "Cozinheiro",
-  "mechanic": "Mecânico"
+    "captain": "Capitão",
+    "engineer": "Engenheiro",
+    "cook": "Cozinheiro",
+    "mechanic": "Mecânico"
   },
   "certificate": {
     "type": "Tipo",
@@ -40,9 +42,9 @@
     "noCertificates": "Nenhum certificado"
   },
   "nav": {
-      "home": "Início",
-      "crewList": "Lista de Tripulação",
-      "settings": "Configurações",
-      "certificateType": "Tipo de Certificado"
-    }
+    "home": "Início",
+    "crewList": "Lista de Tripulação",
+    "settings": "Configurações",
+    "certificateType": "Tipo de Certificado"
+  }
 }

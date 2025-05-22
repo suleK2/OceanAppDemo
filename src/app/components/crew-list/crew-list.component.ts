@@ -8,18 +8,22 @@ import { CrewMember } from "../../models/crew-member.model";
 import { CertificateListComponent } from "../certificate-list/certificate-list.component";
 import { CrewEditComponent } from "../crew-edit/crew-edit.component";
 import { CrewCardComponent } from "../crew-card/crew-card.component";
+import { CertificateComponent } from "../certificate/certificate.component";
 
 import { CrewService } from "../../services/crew.service";
+import { Certificate } from "../../models/certificate.model";
+import { CertificateService } from "../../services/certificate.service";
 
 @Component({
   selector: 'crewList',
-  imports: [CommonModule, TranslateModule, FormsModule, CertificateListComponent, CrewEditComponent, CrewCardComponent],
+  imports: [CommonModule, TranslateModule, FormsModule, CertificateListComponent,
+    CrewEditComponent, CrewCardComponent, CertificateComponent],
   templateUrl: 'crew-list.component.html'
 })
 
 export class CrewListComponent {
 
-  constructor(private crewService: CrewService) { }
+  constructor(private crewService: CrewService, private certificateService: CertificateService) { }
 
   ngOnInit(): void {
     this.getCrews();
@@ -98,5 +102,31 @@ export class CrewListComponent {
   closeCrewCard() {
     this.showCrewCardModal = false;
   }
+
+  // add new certificate 
+  selectedCertificate !: Certificate;
+  showAddCertificateModal = false;
+
+  openAddCertificateModal(member: CrewMember) {
+    this.selectedCertificate = {
+      id: 0,
+      crewId: member.id,
+      certificateTypeId: 0,
+      issueDate: '',
+      expiryDate: ''
+    };
+    this.selectedMember = member;
+    this.showAddCertificateModal = true;
+  }
+ 
+  closeAddCertificateModal() {
+    this.showAddCertificateModal = false;
+  }
+  saveCertificate(updated: Certificate) {
+    this.certificateService.addNewCertificate(updated);
+    this.showAddCertificateModal = false;
+  
+  }
+
 
 }

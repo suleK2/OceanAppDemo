@@ -31,19 +31,26 @@
         <td>{{ member.daysOnBoard }}</td>
         <td>{{ member.dailyRate | currency: member.displayCurrency}}</td>
         <td>{{ member.daysOnBoard * member.dailyRate | currency: member.displayCurrency }}</td>
-        <td (click)="openCertificateModal(member)">
-          <i class="fas fa-certificate text-primary" style="cursor:pointer"></i>
+        <td>
+            <button class="btn btn-sm btn-outline-info me-1" (click)="openCertificateModal(member)">
+    <i class="fas fa-eye"></i> {{ 'common.view' | translate }}
+  </button>
+  <button class="btn btn-sm btn-outline-success" (click)="openAddCertificateModal(member)">
+    <i class="fas fa-plus"></i> {{ 'common.add' | translate }}
+  </button>
         </td>
         <td>
-          <button class="btn btn-sm btn-outline-info me-1" (click)="showCrewCard(member)">
-            <i class="fas fa-id-card"></i> {{ 'common.view' | translate }}
-          </button>
-          <button class="btn btn-sm btn-outline-primary me-1" (click)="openEditModal(member)">
-            <i class="fas fa-edit"></i> {{ 'common.edit' | translate }}
-          </button>
-          <button class="btn btn-sm btn-outline-danger" (click)="deleteMember(member)">
-            <i class="fas fa-trash"></i> {{ 'common.delete' | translate }}
-          </button>
+        
+  <button class="btn btn-sm btn-outline-info me-1" (click)="showCrewCard(member)">
+    <i class="fas fa-id-card"></i> {{ 'common.viewCard' | translate }}
+  </button>
+  <button class="btn btn-sm btn-outline-primary me-1" (click)="openEditModal(member)">
+    <i class="fas fa-edit"></i> {{ 'common.edit' | translate }}
+  </button>
+  <button class="btn btn-sm btn-outline-danger me-1" (click)="deleteMember(member)">
+    <i class="fas fa-trash"></i> {{ 'common.delete' | translate }}
+  </button>
+
         </td>
       </tr>
     </tbody>
@@ -58,3 +65,6 @@
 
 <app-crew-card *ngIf="showCrewCardModal" [member]="selectedMember" (close)="closeCrewCard()">
 </app-crew-card>
+
+<certificate-add *ngIf="showAddCertificateModal" [certificate]="selectedCertificate"  
+(cancel)="closeAddCertificateModal()" (save)="saveCertificate($event)"></certificate-add>

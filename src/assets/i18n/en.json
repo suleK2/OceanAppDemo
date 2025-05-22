@@ -24,7 +24,9 @@
     "name" :"Name",
     "description":"Description",
     "addNewType":"Add New Certificate Type",
-    "view": "View Crew Card"
+    "viewCard": "View Card",
+    "view":"View",
+    "add": "Add"
   },
   "titles": {
   "captain": "Captain",
