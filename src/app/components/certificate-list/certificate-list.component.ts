@@ -19,7 +19,6 @@ export class CertificateListComponent {
   set member(value: CrewMember) {
     this._member = value;
     this.certificates = this.certificateService.getCertificatesByCrewId(this._member.id);
-    console.log('Certificates:', this.certificates);
   }
 
   get member(): CrewMember {

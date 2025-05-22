@@ -14,5 +14,4 @@ export class CrewMember {
   public displayNationality?: string;
   public displayTitle?: string;
   public displayCurrency?: string;
-  public certificates?: Certificate[];
 }
