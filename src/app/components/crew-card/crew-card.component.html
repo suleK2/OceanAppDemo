@@ -1,28 +1,41 @@
+<div *ngIf="member" class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ 'crew.detail' | translate }}</h5>
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
 
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a 
-      class="nav-link" 
-      [class.active]="activeTab === 'member'"
-      (click)="activeTab = 'member'">
-      {{ "crew.detail" | translate}}
-    </a>
-  </li>
-  <li class="nav-item">
-    <a 
-      class="nav-link" 
-      [class.active]="activeTab === 'certificates'"
-      (click)="activeTab = 'certificates'">
-      {{ "crew.certificates" | translate}}
-    </a>
-  </li>
-</ul>
+      <div class="modal-body">
+        <!-- Use your existing tab structure or content here -->
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link" [class.active]="activeTab === 'member'" (click)="activeTab = 'member'">
+              {{ "crew.detail" | translate }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [class.active]="activeTab === 'certificates'" (click)="activeTab = 'certificates'">
+              {{ "crew.certificates" | translate }}
+            </a>
+          </li>
+        </ul>
 
-<div class="tab-content p-3 border border-top-0">
-  <div *ngIf="activeTab === 'member'">
-    <app-crew-member [member]="member"></app-crew-member>
-  </div>
-  <div *ngIf="activeTab === 'certificates'">
-  <app-crew-certificates [member]="member"></app-crew-certificates>
+        <div class="tab-content p-3 border border-top-0">
+          <div *ngIf="activeTab === 'member'">
+            <app-crew-member [member]="member"></app-crew-member>
+          </div>
+          <div *ngIf="activeTab === 'certificates'">
+            <app-crew-certificates [member]="member"></app-crew-certificates>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="closeModal()">
+          {{ 'common.close' | translate }}
+        </button>
+      </div>
+    </div>
   </div>
 </div>
