@@ -10,12 +10,23 @@ import { CertificateType } from "../models/certificate-type.model";
 
 export class CertificateService {
   types: CertificateType[] = [];
-  constructor(certificateTypeService: CertificateTypeService) {
+  constructor(private certificateTypeService: CertificateTypeService) {
     this.types = certificateTypeService.getCertificateTypes();
   }
 
   getCertificates() {
     return Certificates.map(cert => {
+      const selectedType = this.types.find(t => t.id === cert.certificateTypeId);
+
+      return {
+        ...cert,
+        displayType: selectedType ? selectedType.name : ''
+      };
+    });
+  }
+   getCertificatesByCrewId(crewId:number) : Certificate[] {
+
+    return Certificates.filter(cert=>cert.crewId===crewId).map(cert => {
       const selectedType = this.types.find(t => t.id === cert.certificateTypeId);
 
       return {

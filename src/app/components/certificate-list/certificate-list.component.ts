@@ -4,18 +4,21 @@ import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { CrewMember } from '../../models/crew-member.model';
 
+import { CertificateService } from '../../services/certificate.service';
+
 @Component({
   selector: 'app-certificate-list',
   imports: [CommonModule, TranslateModule],
   templateUrl: './certificate-list.component.html'
 })
 export class CertificateListComponent {
+  constructor(private certificateService:CertificateService){}
   private _member!: CrewMember;
   certificates: Certificate[] = [];
   @Input()
   set member(value: CrewMember) {
     this._member = value;
-    this.certificates = value.certificates ?? [];
+    this.certificates = this.certificateService.getCertificatesByCrewId(this._member.id);
     console.log('Certificates:', this.certificates);
   }
 
