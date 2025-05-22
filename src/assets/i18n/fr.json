@@ -29,10 +29,10 @@
     "add": "Ajouter"
   },
   "titles": {
-  "captain": "Capitaine",
-  "engineer": "Ingénieur",
-  "cook": "Cuisinier",
-  "mechanic": "Mécanicien"
+    "captain": "Capitaine",
+    "engineer": "Ingénieur",
+    "cook": "Cuisinier",
+    "mechanic": "Mécanicien"
   },
   "certificate": {
     "type": "Type",
@@ -41,10 +41,15 @@
     "details": "Détails du Certificat",
     "noCertificates": "Aucun certificat"
   },
-   "nav": {
-      "home": "Accueil",
-      "crewList": "Liste d'Équipage",
-      "settings": "Paramètres",
-      "certificateType": "Type de Certificat"
-    }
+  "nav": {
+    "home": "Accueil",
+    "crewList": "Liste d'Équipage",
+    "settings": "Paramètres",
+    "certificateType": "Type de Certificat"
+  },
+  "home": {
+    "messagePart1": "Bienvenue à",
+    "messagePart2": "Système de Gestion d'Équipage",
+    "messagePart3": "Gérez facilement vos membres d'équipage et leurs certificats"
+  }
 }

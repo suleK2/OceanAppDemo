@@ -46,5 +46,10 @@
     "crewList": "Lista de Tripulação",
     "settings": "Configurações",
     "certificateType": "Tipo de Certificado"
+  },
+  "home": {
+    "messagePart1": "Bem-vindo ao",
+    "messagePart2": "Sistema de Gestão de Tripulação",
+    "messagePart3": "Gerencie seus membros da tripulação e certificados com facilidade"
   }
 }

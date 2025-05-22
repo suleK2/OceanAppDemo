@@ -46,5 +46,10 @@
   "crewList": "Crew List",
   "settings": "Settings",
   "certificateType": "Certificate Type"
+  },
+  "home":{
+    "messagePart1" : "Welcome to",
+    "messagePart2" : "Crew Management System",
+    "messagePart3" : "Manage your crew members and certificates with ease"
   }
 }
