@@ -22,7 +22,9 @@ import { CertificateService } from "../../services/certificate.service";
 })
 
 export class CrewListComponent {
-
+  crewList: CrewMember[] = [];
+ currencyTotals: Record<string, number> = {};
+  objectKeys = Object.keys;
   constructor(private crewService: CrewService, private certificateService: CertificateService) { }
 
   ngOnInit(): void {
@@ -31,9 +33,23 @@ export class CrewListComponent {
 
   // get all lists
   getCrews(): CrewMember[] {
-    return this.crewService.getCrews();
+    const list = this.crewService.getCrews();
+    this.crewList = list;
+    this.calculateCurrencyTotals();
+    return list;
   }
+  calculateCurrencyTotals() {
+    this.currencyTotals = {};
+    for (const member of this.crewList) {
+      const currency = member.displayCurrency ?? 'UNKNOWN';
+      const income = member.daysOnBoard * member.dailyRate;
 
+      if (!this.currencyTotals[currency]) {
+        this.currencyTotals[currency] = 0;
+      }
+      this.currencyTotals[currency] += income;
+    }
+  }
   //edit member
 
   selectedMember!: CrewMember;

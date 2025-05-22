@@ -54,8 +54,15 @@
         </td>
       </tr>
     </tbody>
+    <tfoot>
+    <tr *ngFor="let currency of objectKeys(currencyTotals)">
+      <td colspan="7" class="text-end"><strong>Total ({{ currency }})</strong></td>
+      <td><strong>{{ currencyTotals[currency] | number:'1.2-2' }}</strong></td>
+    </tr>
+  </tfoot>
   </table>
 </div>
+
 
 <app-crew-edit *ngIf="showEditModal" [member]="selectedMember" (cancel)="closeEditModal()" (save)="saveMember($event)">
 </app-crew-edit>
